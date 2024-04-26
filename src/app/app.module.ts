@@ -7,6 +7,7 @@ import { CoursesComponent } from './components/courses/courses.component';
 import { NewsComponent } from './components/news/news.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
     CoursesComponent,
     NewsComponent,
     NavbarComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
