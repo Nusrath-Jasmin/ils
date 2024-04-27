@@ -1,0 +1,42 @@
+
+<div class="w-screen h-screen bg-white flex flex-col items-center justify-center">
+    <div class="text-center w-full ">            
+        <h2 class=" text-3xl font-extrabold text-gray-900">Login</h2>
+    </div>
+        <div class="flex px-4 w-full md:h-2/3 justify-center border-2 border-white">    
+          <form
+            class= "p-4 flex justify-between flex-col md:h-2/3 space-y-5"
+            #loginForm="ngForm"
+            (ngSubmit)="onSubmit(loginForm)"
+          >
+              <input
+                type="email"
+                id="phone"
+                name="phone"
+                ngModel
+                class="border border-gray-300 px-5 py-3 w-64 md:w-96"
+                placeholder="Email"
+              />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                ngModel
+                class="border border-gray-300 px-5 py-3 w-64 md:w-96"
+                placeholder="Password"
+              />
+            
+            <div class="w-full flex justify-between items-center md:h-1/3">
+              <button
+              type="submit"
+              class="bg-[#2C66B8] text-white  px-6 py-1 rounded-2xl flex justify-center items-center"
+            >
+              LOGIN
+            </button>
+            <a href="" class="text-[12px]" [routerLink]="'/reset-password'">Reset Password?</a>
+            </div>
+          </form>
+        </div>
+        <div *ngIf="error" class="text-red-700">Can't Login ! Try Again</div>
+      </div>
+ 

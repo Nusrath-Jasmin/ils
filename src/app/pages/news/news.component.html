@@ -1,0 +1,22 @@
+<div class="w-full">
+  <app-navbar></app-navbar>
+
+  <div *ngIf="blogs">
+    <h1>Blog Listing</h1>
+    <ul>
+      <li *ngFor="let blog of blogs">
+        <h2>{{ blog.title }}</h2>
+        <p>{{ blog.content }}</p>
+      </li>
+    </ul>
+  </div>
+  <div *ngIf="!blogs" class="p-10 text-lg text-center">No Blogs to Show</div>
+  <div class="mt-64">
+    <div
+      class="text-center text-lg text-white bg-[#29323F] p-5 border-2 border-white rounded-lg"
+    >
+      <a [routerLink]="'/login'" class="">Post a New Blog</a>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>
