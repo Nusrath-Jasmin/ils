@@ -21,7 +21,7 @@ export class ResetPasswordComponent {
       return;
     }
 
-    this.apicall.resetPassword(this.password).subscribe({
+    this.apicall.resetPassword({password:this.password}).subscribe({
       next:(res:any) => {
         if(res.reset){
         console.log('Password reset successfully.');
@@ -33,6 +33,7 @@ export class ResetPasswordComponent {
       },
       error:() => {
         console.error('Error resetting password:');
+        this.error=true
       }}
     );
   }

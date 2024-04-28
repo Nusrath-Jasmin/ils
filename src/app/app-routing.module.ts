@@ -7,6 +7,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { NewsComponent } from './pages/news/news.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { AddBlogComponent } from './pages/add-blog/add-blog.component';
+import { AdminAuthGuard } from './services/auth.guard.service';
 
 
 const routes: Routes = [
@@ -16,9 +17,7 @@ const routes: Routes = [
   { path: 'login',component:LoginComponent},
   { path: 'news',component:NewsComponent},
   { path:'reset-password',component:ResetPasswordComponent},
-  { path:'add-blog',component:AddBlogComponent
-  }
-
+  { path:'add-blog',component:AddBlogComponent, canActivate:[AdminAuthGuard]}
 ];
 
 

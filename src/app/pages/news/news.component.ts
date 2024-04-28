@@ -9,8 +9,9 @@ import { Blog } from 'src/app/components/blog.interface'
 })
 
 export class NewsComponent {
-  blogs!:Blog[];
-
+  blogs!:Blog[]
+  noitem=false
+  
   constructor(private apiService: ApicallService) { }
 
   ngOnInit(): void {
@@ -23,7 +24,7 @@ export class NewsComponent {
         this.blogs=res
       },
       error:err=>{
-        // this.blogs=[]
+        this.blogs=[]
       }
     });
   }

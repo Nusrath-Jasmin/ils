@@ -1,4 +1,4 @@
-<nav class="bg-[#EDF2F8] py-8">
+<nav class="bg-[#EDF2F8] py-8 w-full">
     <div class="container mx-auto flex justify-between items-center md:px-4">
       
       <div class="logo">
@@ -13,11 +13,11 @@
           </svg>
         </button>
        
-        <div *ngIf="isDropdownOpen" class="absolute top-4 right-1/3 transform -translate-x-1/2 mt-2  flex items-center justify-evenly">
-          <div class="flex space-x-10">
-              <a href="#" class="text-[#2C66B8] font-semibold">HOME</a>
-              <a href="#" class="text-[#2C66B8] font-semibold">COURSES</a>
-              <a href="#" class="text-[#2C66B8] font-semibold">NEWS</a>
+        <div *ngIf="isDropdownOpen" class="w-full top-4 transform -translate-x-1/2 mt-4  flex items-center justify-evenly">
+          <div class="flex gap-4">
+              <a [routerLink]="'/home'" class="text-[#2C66B8] font-semibold">HOME</a>
+              <a [routerLink]="'/courses'"  class="text-[#2C66B8] font-semibold">COURSES</a>
+              <a [routerLink]="'/news'"  class="text-[#2C66B8] font-semibold">NEWS</a>
           </div>
       </div>
       
@@ -25,10 +25,10 @@
       
    
       <ul class="hidden sm:flex space-x-4 md:space-x-16">
-        <li><a href="#" class="text-[#2C66B8] font-semibold">HOME</a></li>
+        <li><a [routerLink]="'/home'"  class="text-[#2C66B8] font-semibold">HOME</a></li>
         <li><a href="#" class="text-[#2C66B8] font-semibold">ABOUT US</a></li>
-        <li><a href="#" class="text-[#2C66B8] font-semibold">COURSES</a></li>
-        <li><a href="#" class="text-[#2C66B8] font-semibold">NEWS</a></li>
+        <li><a [routerLink]="'/courses'"  class="text-[#2C66B8] font-semibold">COURSES</a></li>
+        <li><a [routerLink]="'/news'"  class="text-[#2C66B8] font-semibold">NEWS</a></li>
         <li><a href="#" class="text-[#2C66B8] font-semibold">CONTACT US</a></li>
       </ul>
     </div>

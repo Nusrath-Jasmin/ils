@@ -1,11 +1,10 @@
 <div class="w-full">
   <app-navbar></app-navbar>
 
-  <div *ngIf="blogs">
-    <h1>Blog Listing</h1>
-    <ul>
-      <li *ngFor="let blog of blogs">
-        <h2>{{ blog.title }}</h2>
+  <div *ngIf="blogs" class="p-5 md:p-10">
+    <ul class="flex flex-col gap-10">
+      <li *ngFor="let blog of blogs" class="p-10 md:p-14 gap-6 flex flex-col shadow-lg rounded-3xl">
+        <h2 class="text-2xl font-bold text-blue-700">{{ blog.title }}</h2>
         <p>{{ blog.content }}</p>
       </li>
     </ul>

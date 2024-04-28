@@ -9,7 +9,7 @@ import { ApicallService } from 'src/app/services/apicall.service';
   styleUrls: ['./add-blog.component.css']
 })
 export class AddBlogComponent {
-  post!: Blog;
+  post: Blog = { title: '', content: '' };
   error=false;
   errmsg=false;
   constructor(private apiService: ApicallService , private router:Router) {}
@@ -23,6 +23,8 @@ export class AddBlogComponent {
 
     this.apiService.postBlogs(this.post).subscribe({
       next:res=>{
+        console.log(res);
+        
         if(res.posted){
           this.router.navigate(['/news'])
         }
@@ -34,5 +36,10 @@ export class AddBlogComponent {
         this.errmsg=true
       }
     });
+  }
+
+  logout(){
+    localStorage.removeItem('tokenIls');
+    this.router.navigate(['/login'])
   }
 }

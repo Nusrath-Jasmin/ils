@@ -10,7 +10,7 @@ import { ApicallService } from 'src/app/services/apicall.service';
 })
 export class LoginComponent {
   error=false;
-
+  resetError=false
   constructor(private apicall:ApicallService ,private router: Router){}
 
   onSubmit(form: NgForm) {
@@ -18,8 +18,8 @@ export class LoginComponent {
     this.apicall.login(form.value).subscribe({
       next: (response:any) => {
         if(response.logined){
-        localStorage.setItem('token', response.token);
-        if (localStorage.getItem('token')) {
+        localStorage.setItem('tokenIls', response.token);
+        if (localStorage.getItem('tokenIls')) {
             this.router.navigate(['/add-blog']);
           }
           console.log(response);
@@ -32,5 +32,21 @@ export class LoginComponent {
         this.error=true
       },
     });
+  }
+
+  check(formData: any) {
+    console.log("checking");
+    console.log(formData);
+    this.apicall.isAdmin(formData).subscribe({
+      next:res=>{
+        if(res.isAdmin){
+          this.router.navigate(['/reset-password'])
+        }
+        else this.resetError=true
+      },
+      error:err=>{
+        this.resetError=true
+      }
+    })
   }
 }

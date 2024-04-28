@@ -4,18 +4,21 @@
       <div>
         <label for="title" class="block font-semibold">Title:</label>
         <input type="text" id="title" name="title" [(ngModel)]="post.title" required
-          class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+          class="block w-full border-gray-300 rounded-md shadow-xl p-4 focus:ring-indigo-500 focus:border-indigo-500">
       </div>
       <div>
         <label for="content" class="block font-semibold">Content:</label>
         <textarea id="content" name="content" [(ngModel)]="post.content" required rows="8"
-          class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"></textarea>
+          class="block w-full border-gray-300 rounded-md shadow-xl p-10 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
       </div>
-      <div>
+      <div class="gap-8 flex">
         <button type="submit"
           class="bg-[#2C66B8] text-white py-2 px-4 rounded-md  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Submit</button>
+          
       </div>
     </form>
+    <button type="submit"
+          class=" mt-10 bg-[#2C66B8] text-white py-2 px-4 rounded-md  focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" (click)="logout()">Logout</button>
     <div *ngIf="error" class="text-red-700">Title and contents are required.</div>
     <div *ngIf="errmsg" class="text-red-700">Error posting the blog.</div>
   </div>

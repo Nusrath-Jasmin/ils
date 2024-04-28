@@ -11,8 +11,8 @@
           >
               <input
                 type="email"
-                id="phone"
-                name="phone"
+                id="email"
+                name="email"
                 ngModel
                 class="border border-gray-300 px-5 py-3 w-64 md:w-96"
                 placeholder="Email"
@@ -33,10 +33,11 @@
             >
               LOGIN
             </button>
-            <a href="" class="text-[12px]" [routerLink]="'/reset-password'">Reset Password?</a>
+            <a class="text-[12px] cursor-pointer" (click)="check(loginForm.value)">Reset Password?</a>
             </div>
           </form>
         </div>
         <div *ngIf="error" class="text-red-700">Can't Login ! Try Again</div>
+        <div *ngIf="resetError" class="text-red-700">Invalid Credentials.Try Again</div>
       </div>
  

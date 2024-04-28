@@ -17,7 +17,12 @@ export class ApicallService {
   }
 
   postBlogs(data:any){
-    return this.http.post<any>(`${this.apiUrl}/postBlogs`,data);
+    const token = localStorage.getItem('tokenIls'); 
+    let headers = new HttpHeaders();
+    if (token) {
+      headers = headers.set('Authorization', `Bearer ${token}`); 
+    }
+    return this.http.post<any>(`${this.apiUrl}/postBlogs`, data, { headers }); 
   }
 
   getBlogs():Observable<any>{
@@ -27,5 +32,11 @@ export class ApicallService {
  resetPassword(data:any){
   return this.http.post<any>(`${this.apiUrl}/reset-password`,data);
  }
+
+ isAdmin(data:any){
+  return this.http.post<any>(`${this.apiUrl}/isAdmin`,data);
+}
+
+
 
 }
